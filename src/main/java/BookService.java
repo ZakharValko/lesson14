@@ -9,9 +9,10 @@ public class BookService {
         List<Book> booksSource = new ArrayList<>();
         copyToBooks(albumSource, booksDestination);
         copyToBooks(albumSource, albumDestination);
+        copyToBooks(booksSource, booksDestination);
     }
 
-    public static void copyToBooks(List<? extends Album> src, List<? super Album> dest){
-        for(Album album : src) { dest.add(album); }
+    public static <T> void copyToBooks (List<? extends T> src, List<? super T> dest){
+        for(T t : src) { dest.add(t); }
     }
 }
